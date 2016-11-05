@@ -98,9 +98,7 @@ public class Song
                     numHeardMajors[0] = numHeardMajors[0] + 1;
                 case oe:
                     numHeardMajors[1] = numHeardMajors[1] + 1;
-                case math:
-                    numHeardMajors[2] = numHeardMajors[2] + 1;
-                case cmda:
+                case mathOrCDMA:
                     numHeardMajors[2] = numHeardMajors[2] + 1;
                 default:
                     numHeardMajors[3] = numHeardMajors[3] + 1;
@@ -142,9 +140,7 @@ public class Song
                     numLikedMajors[0] = numLikedMajors[0] + 1;
                 case oe:
                     numLikedMajors[1] = numLikedMajors[1] + 1;
-                case math:
-                    numLikedMajors[2] = numLikedMajors[2] + 1;
-                case cmda:
+                case mathOrCDMA:
                     numLikedMajors[2] = numLikedMajors[2] + 1;
                 default:
                     numLikedMajors[3] = numLikedMajors[3] + 1;

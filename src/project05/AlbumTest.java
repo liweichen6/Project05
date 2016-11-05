@@ -7,12 +7,14 @@ package project05;
 public class AlbumTest extends student.TestCase
 {
     private Album testAlbum;
+    private Album testAlbum2;
     /**
      * 
      */
     public void setUp()
     {
         testAlbum = new Album("input.txt");
+        testAlbum2 = new Album("SongListTest1.csv");
     }
     /**
      * 
@@ -25,4 +27,5 @@ public class AlbumTest extends student.TestCase
         assertEquals(list.getEntry(1).getArtist(), testAlbum.toAlbum("input.txt").getEntry(1).getArtist());
         assertEquals(2, testAlbum.toAlbum("input.txt").getLength());
     }
+    
 }

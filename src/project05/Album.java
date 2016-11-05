@@ -10,65 +10,25 @@ public class Album
     /**
      * 
      */
-    public Album(String fileName)
+    public Album(LinkedList<String[]> songList)
     {
-        album = toAlbum(fileName);
+        album = toAlbum(songList);
     }
+    
     /**
      * 
      */
-    public LinkedList<Song> toAlbum(String fileName)
+    public LinkedList<Song> toAlbum(LinkedList<String[]> songList)
     {
         LinkedList<Song> album = new LinkedList<Song>();
-        try
+        
+        int l = songList.getLength();
+        
+        for (int i = 2; i <= l; i++)
         {
-            Scanner file = new Scanner(new File(fileName));
-            while (file.hasNextLine())
-            {
-                String line = file.nextLine();
-                String name = "";
-                String genre = "";
-                String date = "";
-                String artist = "";
-                int index = 1;
-                for (int i = 0 ; i < line.length(); i++)
-                {
-                    if (line.charAt(i) == ',')
-                    {
-                        index++;
-                    }
-                    else
-                    {
-                        if (index == 1)
-                        {
-                            name = name + line.charAt(i);
-                        }
-                        else if (index == 2)
-                        {
-                            artist = artist + line.charAt(i);
-                        }
-                        else if (index == 3)
-                        {
-                            date = date + line.charAt(i);
-                        }
-                        else
-                        {
-                            genre = genre + line.charAt(i);
-                        }
-                    }
-                }
-                if (!artist.equals(""))
-                {
-                    Song toAlbum = new Song(artist, name, genre, date);
-                    album.add(toAlbum);
-                }
-            }
-            file.close();
+            
         }
-        catch (FileNotFoundException e)
-        {
-            e.printStackTrace();
-        }
+        
         return album;
     }
     /**
