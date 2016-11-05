@@ -3,7 +3,10 @@
  */
 package project05;
 
+import java.awt.Color;
 import CS2114.Button;
+import CS2114.Shape;
+import CS2114.TextShape;
 import CS2114.Window;
 import CS2114.WindowSide;
 
@@ -16,6 +19,7 @@ import CS2114.WindowSide;
 public class ProgramWindow {
     private Window window;
     private Album album;
+    
     private Button clickedPrev;
     private Button clickedNext;
     private Button clickedArtist;
@@ -27,12 +31,33 @@ public class ProgramWindow {
     private Button clickedRegion;
     private Button clickedQuit;
     
+    private Shape upperLeft;
+    private Shape upperMiddle;
+    private Shape upperRight;
+    private Shape left;
+    private Shape middle;
+    private Shape right;
+    private Shape lowerLeft;
+    private Shape lowerMiddle;
+    private Shape lowerRight;
+    private Shape sample;
+    
+    private TextShape sampleT;
+    private TextShape sampleH;
+    private TextShape sampleL;
+    
+    
     /**
      * 
      */
     public ProgramWindow() {
         this.window = new Window();
         window.setTitle("Project 5 - Group 5");
+        window.setSize(800, 600);
+        int w = window.getWidth() / 4;
+        int h = (window.getHeight() - 100) / 3;
+        int w1 = w / 2 - 5 / 2;
+        int h1 = 70 + 2 / 3 * h;
         
         clickedPrev = new Button("¡û Prev");
         clickedNext = new Button("¡ú Next");
@@ -66,6 +91,30 @@ public class ProgramWindow {
         window.addButton(clickedMajor, WindowSide.SOUTH);
         window.addButton(clickedRegion, WindowSide.SOUTH);
         window.addButton(clickedQuit, WindowSide.SOUTH);
+        
+        upperLeft = new Shape(w1, h1, 5, 40, Color.BLACK);
+        upperMiddle = new Shape(w1 + w, h1, 5, 40, Color.BLACK);
+        upperRight = new Shape(w1 + 2 * w, h1, 5, 40, Color.BLACK);
+        left = new Shape(w1, h1 + h, 5, 40, Color.BLACK);
+        middle = new Shape(w1 + w, h1 + h, 5, 40, Color.BLACK);
+        right = new Shape(w1 + 2 * w, h1 + h, 5, 40, Color.BLACK);
+        lowerLeft = new Shape(w1, h1 + 2 * h, 5, 40, Color.BLACK);
+        lowerMiddle = new Shape(w1 + w, h1 + 2 * h, 5, 40, Color.BLACK);
+        lowerRight = new Shape(w1 + 2 * w, h1 + 2 * h, 5, 40, Color.BLACK);
+        sample = new Shape(w1 + 3 * w, h1 + 2 * h, 5, 40, Color.BLACK);
+        
+        
+        
+        window.addShape(upperLeft);
+        window.addShape(upperMiddle);
+        window.addShape(upperRight);
+        window.addShape(left);
+        window.addShape(middle);
+        window.addShape(right);
+        window.addShape(lowerLeft);
+        window.addShape(lowerMiddle);
+        window.addShape(lowerRight);
+        window.addShape(sample);
     }
     
     /**
