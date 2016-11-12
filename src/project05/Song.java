@@ -1,209 +1,295 @@
 package project05;
+
 /**
+ * The song class
  * 
  * @author jacob
+ * @version 11/5/2016
  *
+ * @author Mingchi Li
+ * @version 11/6/2016
  */
 public class Song
 {
     private String artist;
     private String title;
     private String genre;
-    private String date;
+    private int date;
+
     private int[] numHeardMajors;
-    private int[] numLikedMajors;
     private int[] numHeardHobby;
-    private int[] numLikedHobby;
     private int[] numHeardRegion;
+
+    private int[] numLikedMajors;
+    private int[] numLikedHobby;
     private int[] numLikedRegion;
+
     /**
+     * Create a new song object
      * 
+     * @param t title of the song
+     * @param a artist of the song
+     * @param d date of the song
+     * @param g genre of the song
      */
-    public Song(String artist, String title, String genre, String date)
+    public Song(String t, String a, int d, String g)
     {
-        super();
-        this.artist = artist;
-        this.title = title;
-        this.genre = genre;
-        this.date = date;
+        title = t;
+        artist = a;
+        date = d;
+        genre = g;
+
         numHeardMajors = new int[4];
-        numLikedMajors = new int[4];
-        numLikedHobby = new int[4];
         numHeardHobby = new int[4];
         numHeardRegion = new int[4];
+
+        numLikedMajors = new int[4];
+        numLikedHobby = new int[4];
         numLikedRegion = new int[4];
-        
     }
+
     /**
+     * Get the artist of this song
      * 
-     * @return
+     * @return the artist
      */
     public String getArtist()
     {
         return artist;
     }
+
     /**
+     * Get the title of this song
      * 
-     * @return
+     * @return the title
      */
     public String getTitle()
     {
         return title;
     }
+
     /**
+     * Get the genre of this song
      * 
-     * @return
+     * @return the genre
      */
     public String getGenre()
     {
         return genre;
     }
+
     /**
+     * Get the date of this song
      * 
-     * @return
+     * @return the date
      */
-    public String getDate()
+    public int getDate()
     {
         return date;
     }
-    /**
-     * 
-     * @return
-     */
+
     /**
      * 
      * @param person
      */
     public void setResponseHeard(String heardOrNot, Person person)
     {
-        Hobby personHobby = person.hobby();
-        Major personMajor = person.major();
-        Region personRegion = person.region();
-        if (heardOrNot.equals("yes"))
+        Hobby personHobby = person.getHobby();
+        Major personMajor = person.getMajor();
+        Region personRegion = person.getRegion();
+
+        if (heardOrNot.equals("Yes"))
         {
             switch (personHobby)
             {
-                case music:
-                    numHeardHobby[0] = numHeardHobby[0] + 1;
-                case sport:
-                    numHeardHobby[1] = numHeardHobby[1] + 1;
-                case art:
-                    numHeardHobby[2] = numHeardHobby[2] + 1;
-                case read:
-                    numHeardHobby[3] = numHeardHobby[3] + 1;
+            case READ:
+                numHeardHobby[0]++;
+                break;
+            case ART:
+                numHeardHobby[1]++;
+                break;
+            case SPORT:
+                numHeardHobby[2]++;
+                break;
+            case MUSIC:
+                numHeardHobby[3]++;
             }
             switch (personMajor)
             {
-                case cs:
-                    numHeardMajors[0] = numHeardMajors[0] + 1;
-                case oe:
-                    numHeardMajors[1] = numHeardMajors[1] + 1;
-                case mathOrCDMA:
-                    numHeardMajors[2] = numHeardMajors[2] + 1;
-                default:
-                    numHeardMajors[3] = numHeardMajors[3] + 1;
+            case CS:
+                numHeardMajors[0]++;
+                break;
+            case OTHER_ENGE:
+                numHeardMajors[1]++;
+                break;
+            case MATH_OR_CDMA:
+                numHeardMajors[2]++;
+                break;
+            case OTHER:
+                numHeardMajors[3]++;
             }
             switch (personRegion)
             {
-                case neus:
-                    numHeardRegion[0] = numHeardRegion[0] + 1;
-                case seus:
-                    numHeardRegion[1] = numHeardRegion[1] + 1;
-                case rus:
-                    numHeardRegion[2] = numHeardRegion[2] + 1;
-                case ous:
-                    numHeardRegion[3] = numHeardRegion[3] + 1;
+            case NE_US:
+                numHeardRegion[0]++;
+                break;
+            case SE_US:
+                numHeardRegion[1]++;
+                break;
+            case R_US:
+                numHeardRegion[2]++;
+                break;
+            case OUT_US:
+                numHeardRegion[3]++;
             }
         }
     }
+
     public void setResponseLiked(String likedOrNot, Person person)
     {
-        Hobby personHobby = person.hobby();
-        Major personMajor = person.major();
-        Region personRegion = person.region();
-        if (likedOrNot.equals("yes"))
+        Hobby personHobby = person.getHobby();
+        Major personMajor = person.getMajor();
+        Region personRegion = person.getRegion();
+
+        if (likedOrNot.equals("Yes"))
         {
             switch (personHobby)
             {
-                case music:
-                    numLikedHobby[0] = numLikedHobby[0] + 1;
-                case sport:
-                    numLikedHobby[1] = numLikedHobby[1] + 1;
-                case art:
-                    numLikedHobby[2] = numLikedHobby[2] + 1;
-                case read:
-                    numLikedHobby[3] = numLikedHobby[3] + 1;
+            case READ:
+                numLikedHobby[0]++;
+                break;
+            case ART:
+                numLikedHobby[1]++;
+                break;
+            case SPORT:
+                numLikedHobby[2]++;
+                break;
+            case MUSIC:
+                numLikedHobby[3]++;
             }
             switch (personMajor)
             {
-                case cs:
-                    numLikedMajors[0] = numLikedMajors[0] + 1;
-                case oe:
-                    numLikedMajors[1] = numLikedMajors[1] + 1;
-                case mathOrCDMA:
-                    numLikedMajors[2] = numLikedMajors[2] + 1;
-                default:
-                    numLikedMajors[3] = numLikedMajors[3] + 1;
+            case CS:
+                numLikedMajors[0]++;
+                break;
+            case OTHER_ENGE:
+                numLikedMajors[1]++;
+                break;
+            case MATH_OR_CDMA:
+                numLikedMajors[2]++;
+                break;
+            case OTHER:
+                numLikedMajors[3]++;
             }
             switch (personRegion)
             {
-                case neus:
-                    numLikedRegion[0] = numLikedRegion[0] + 1;
-                case seus:
-                    numLikedRegion[1] = numLikedRegion[1] + 1;
-                case rus:
-                    numLikedRegion[2] = numLikedRegion[2] + 1;
-                case ous:
-                    numLikedRegion[3] = numLikedRegion[3] + 1;
+            case NE_US:
+                numLikedRegion[0]++;
+                break;
+            case SE_US:
+                numLikedRegion[1]++;
+                break;
+            case R_US:
+                numLikedRegion[2]++;
+                break;
+            case OUT_US:
+                numLikedRegion[3]++;
             }
         }
     }
+
     /**
+     * Get the info of the heard person by majors
      * 
-     * @return
+     * @return the info of heard person by majors
      */
     public int[] getNumHeardMajors()
     {
         return numHeardMajors;
     }
+
     /**
+     * Get the info of the liked person by majors
      * 
-     * @return
+     * @return the info of liked person by majors
      */
     public int[] getNumLikedMajors()
     {
         return numLikedMajors;
     }
+
     /**
+     * Get the info of the heard person by hobby
      * 
-     * @return
+     * @return the info of heard person by hobby
      */
     public int[] getNumHeardHobby()
     {
         return numHeardHobby;
     }
+
     /**
+     * Get the info of the liked person by hobby
      * 
-     * @return
+     * @return the info of liked person by hobby
      */
     public int[] getNumLikedHobby()
     {
         return numLikedHobby;
     }
+
     /**
+     * Get the info of the heard person by region
      * 
-     * @return
+     * @return the info of heard person by region
      */
     public int[] getNumHeardRegion()
     {
         return numHeardRegion;
     }
+
     /**
+     * Get the info of the liked person by region
      * 
-     * @return
+     * @return the info of liked person by region
      */
     public int[] getNumLikedRegion()
     {
         return numLikedRegion;
+    }
+
+
+    /**
+     * Equals method
+     * @return is equal
+     */
+    @Override
+    public boolean equals(Object other) 
+    {
+        if (other == this) 
+        {
+            return true;
+        }
+        if ((other == null) || (other.getClass() != Song.class)) 
+        {
+            return false;
+        }
+        Song temp = (Song) other;
+        return temp.getArtist().equals(this.getArtist())
+                && temp.getTitle().equals(this.getTitle())
+                && temp.getDate() == this.getDate()
+                && temp.getGenre().equals(this.getGenre());
+    } 
+
+    /**
+     * The toString method
+     * 
+     * @return the title of this song
+     */
+    @Override
+    public String toString()
+    {
+        return "[" + title + " " + artist 
+                + " " + date + " " + genre + "]";
     }
 }

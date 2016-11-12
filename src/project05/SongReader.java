@@ -23,14 +23,14 @@ public class SongReader
     }
     
     /**
-     * read the song from file
+     * Read the song from file
      * 
      * @param fileName the file name
      * @return a list contain all the info of the song
      */
-    public LinkedList<String[]> readSongFile(String fileName)
+    public LinkedList<Song> readSongFile(String fileName)
     {
-        LinkedList<String[]> songList = new LinkedList<>();
+        LinkedList<String[]> songInfoList = new LinkedList<>();
         
         try
         {
@@ -40,8 +40,9 @@ public class SongReader
             {
                 String str = scanner.nextLine();
                 String[] songInfo = str.split(",");
-                songList.add(songInfo);
+                songInfoList.add(songInfo);
             }
+
             scanner.close();
         }
         catch (FileNotFoundException e) 
@@ -49,6 +50,27 @@ public class SongReader
             e.printStackTrace();
         }
         
-        return songList;
+        return toAlbum(songInfoList);
+    }
+    
+    /**
+     * Create song list using string list
+     * 
+     * @param songList the data need to process
+     * @return a list of song
+     */
+    private LinkedList<Song> toAlbum(LinkedList<String[]> songList)
+    {
+        LinkedList<Song> album = new LinkedList<Song>();
+        
+        int l = songList.getLength();
+        
+        for (int i = 2; i <= l; i++)
+        {
+            String[] info = songList.getEntry(i);
+            album.add(new Song(info[0], info[1], Integer.parseInt(info[2]), info[3]));
+        }
+        
+        return album;
     }
 }

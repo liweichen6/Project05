@@ -1,7 +1,5 @@
 package project05;
 
-import java.util.Arrays;
-
 import student.TestCase;
 
 /**
@@ -12,31 +10,52 @@ import student.TestCase;
  */
 public class SongReaderTest extends TestCase
 {
+    private LinkedList<Song> songList;
+    
     /**
      * the setUp method
      */
     public void setUp()
     {
-        // nothing
+        String file1 = "SongList.csv";
+        SongReader sr = new SongReader(file1);
+        
+        songList = sr.readSongFile(file1);
     }
     
     /**
-     * test readSureyFile method
+     * Test readSureyFile method
      */
     public void testReadSureyFile()
     {
-        String file1 = "SongList.csv";
-        SongReader sr = new SongReader(file1);
-        LinkedList<String[]> list = sr.readSongFile(file1);
-        
-       String[] info = list.getEntry(1);
-       String[] song1 = list.getEntry(2);
+       Song song1 = songList.getEntry(1);
+       String title = "All These Things I've Done";
+       String artist = "The Killers";
+       String year = "2005";
+       String genre = "alternative";
        
-       String str1 = Arrays.toString(info);
-       String str2 = Arrays.toString(song1);
+       assertEquals(song1.getTitle(), title);
+       assertEquals(song1.getArtist(), artist);
+       assertEquals(song1.getDate(), year);
+       assertEquals(song1.getGenre(), genre);
+    }
+    
+    /**
+     * Test readSureyFile method
+     */
+    public void testReadSureyFile2()
+    {
+       Song song2 = songList.getEntry(2);
+       String title = "All You Need Is Love";
+       String artist = "The Beatles";
+       String year = "1967";
+       String genre = "pop rock";
        
-       assertEquals(str1, "[Song Title, Artist, Year, Genre]");
-       assertEquals(str2, "[All These Things I've Done, "
-               + "The Killers, 2005, alternative]");
+       assertEquals(song2.getTitle(), title);
+       assertEquals(song2.getArtist(), artist);
+       assertEquals(song2.getDate(), year);
+       assertEquals(song2.getGenre(), genre);
+       
+       assertEquals(songList.getLength(), 59);
     }
 }

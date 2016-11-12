@@ -17,7 +17,7 @@ public class SurveyDataReader
      */
     public SurveyDataReader(String fileName)
     {
-        readSureyFile(fileName);
+        readSurveyFile(fileName);
     }
     
     /**
@@ -26,7 +26,7 @@ public class SurveyDataReader
      * @param fileName the file name
      * @return A list of string[]
      */
-    public LinkedList<String[]> readSureyFile(String fileName)
+    public LinkedList<Person> readSurveyFile(String fileName)
     {
         LinkedList<String[]> surveyData = new LinkedList<>();
         
@@ -47,6 +47,31 @@ public class SurveyDataReader
             e.printStackTrace();
         }
         
-        return surveyData;
+        return toPersonList(surveyData);
+    }
+    
+    /**
+     * Create a person list using survey data
+     * 
+     * @param the survey data
+     */
+    private LinkedList<Person> toPersonList(LinkedList<String[]> surveyData)
+    {
+        LinkedList<Person> personList = new LinkedList<Person>();
+        
+        int l = surveyData.getLength();
+        
+        for (int i = 2; i <= l; i++)
+        {
+            String[] info = surveyData.getEntry(i);
+            if (info[2].equals("") || info[3].equals("") || info[4].equals(""))
+            {
+                continue;
+            }
+            personList.add(new Person(info));
+            
+        }
+        
+        return personList;
     }
 }

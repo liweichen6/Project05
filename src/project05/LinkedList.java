@@ -4,6 +4,7 @@ import list.ListInterface;
 /**
  * This is the linkedList implementation class. This will store data
  * using the implementation.
+ * 
  * @author Jacob Delisle jacobd96
  * @version 2016.11.05
  * @param <T>
@@ -12,6 +13,7 @@ public class LinkedList<T> implements ListInterface<T>
 {
     private Node<T> firstNode;
     private int size;
+    
     /**
      * This is the constructor. Sets the firstNode as null
      * and size as 0
@@ -21,6 +23,7 @@ public class LinkedList<T> implements ListInterface<T>
         firstNode = null;
         size = 0;
     }
+    
     /**
      * Returns a node at a given position.
      * @param position what node to return
@@ -37,6 +40,7 @@ public class LinkedList<T> implements ListInterface<T>
         }
         return currentNode;
     }
+    
     /**
      * Adds a node to the end of the list. 
      * @param anEntry what is being added
@@ -56,6 +60,7 @@ public class LinkedList<T> implements ListInterface<T>
         }
         size++;
     }
+    
     /**
      * Adds an entry to a specific entry in the list.
      * @param position what position to add anEntry to
@@ -92,6 +97,7 @@ public class LinkedList<T> implements ListInterface<T>
            size++;
         }
     }
+    
     /**
      * This will clear the list by setting the firstNode field
      * to null and size to 0
@@ -102,6 +108,7 @@ public class LinkedList<T> implements ListInterface<T>
         firstNode = null;
         size = 0;
     }
+    
     /**
      * This method will determine whether or not anEntry T
      * is in the list.
@@ -132,6 +139,7 @@ public class LinkedList<T> implements ListInterface<T>
         }
         return isFound;
     }
+    
     /**
      * Returns the data at a certain position.
      * @param position place to find data.
@@ -150,6 +158,7 @@ public class LinkedList<T> implements ListInterface<T>
         }
         return getNodeAt(position).getData();
     }
+    
     /**
      * Returns the size of the list
      * @return int for size of list.
@@ -159,6 +168,7 @@ public class LinkedList<T> implements ListInterface<T>
     {
         return size;
     }
+    
     /**
      * Determines whether the list is empty or not, i.e.
      * size is zero
@@ -169,6 +179,7 @@ public class LinkedList<T> implements ListInterface<T>
     {
         return (this.getLength() == 0);
     }
+    
     /**
      * Removes a node at a certain position and returns
      * the data
@@ -211,6 +222,7 @@ public class LinkedList<T> implements ListInterface<T>
         }
             
     }
+    
     /**
      * Replaces a node at a certain position.
      * @throws IndexOutOfBoundsException if position is invalid
@@ -233,6 +245,7 @@ public class LinkedList<T> implements ListInterface<T>
             return toBeReplaced;
         }
     }
+    
     /**
      * Returns an array representation of the data.
      * @return T[] the array to be returned
@@ -248,6 +261,7 @@ public class LinkedList<T> implements ListInterface<T>
         }
         return array;
     }
+    
     /**
      * Determines whether two linked list are equal
      * @param obj to be compared with
@@ -292,6 +306,7 @@ public class LinkedList<T> implements ListInterface<T>
             return false;
         }
     }
+    
     /**
      * Returns a string representation of the data
      * @return String for string representation
@@ -316,6 +331,7 @@ public class LinkedList<T> implements ListInterface<T>
         builder.append(']');
         return builder.toString();
     }
+    
     /**
      * This is the private inner node class
      * @param <E> 
@@ -324,6 +340,7 @@ public class LinkedList<T> implements ListInterface<T>
     {
         private E data;
         private Node<E> next;
+        
         /**
          * This constructor initializes the fields
          * @param dataNew to initialize data
@@ -333,6 +350,7 @@ public class LinkedList<T> implements ListInterface<T>
             data = dataNew;
             next = null;
         }
+        
         /**
          * Set the data in the node.
          * @param dataNew to be set
@@ -341,6 +359,7 @@ public class LinkedList<T> implements ListInterface<T>
         {
             data = dataNew;
         }
+        
         /**
          * Returns the next node.
          * @return Node<E> next node
@@ -349,6 +368,7 @@ public class LinkedList<T> implements ListInterface<T>
         {
             return next;
         }
+        
         /**
          * returns the data in a specific node.
          * @return E for data
@@ -357,6 +377,7 @@ public class LinkedList<T> implements ListInterface<T>
         {
             return data;
         }
+        
         /**
          * sets the next node for the list
          * @param newNode to be added

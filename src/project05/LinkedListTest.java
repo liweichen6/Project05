@@ -1,12 +1,14 @@
 package project05;
 /**
  * This will test the LinkedList class.
+ * 
  * @author Jacob Delisle jacobd96
  * @version 2016.11.05
  */
 public class LinkedListTest extends student.TestCase
 {
     private LinkedList<String> test;
+    
     /**
      * This initializes the field for testing.
      */
@@ -14,6 +16,7 @@ public class LinkedListTest extends student.TestCase
     {
         test = new LinkedList<String>();
     }
+    
     /**
      * Test the add method when something is being
      * added to the end of the list
@@ -26,6 +29,7 @@ public class LinkedListTest extends student.TestCase
         assertEquals(2, test.getLength());
         assertEquals("b", test.getEntry(2));
     }
+    
     /**
      * Test the add method when something is being
      * added to a specific position of the list.
@@ -74,6 +78,7 @@ public class LinkedListTest extends student.TestCase
         assertEquals("d", test.getEntry(2));
         assertEquals("b", test.getEntry(3));
     }
+    
     /**
      * Tests the clear method.
      */
@@ -84,6 +89,7 @@ public class LinkedListTest extends student.TestCase
         test.clear();
         assertEquals(0, test.getLength());
     }
+    
     /**
      * This will test the contains method, which should return
      * false if the entry is not in the list and true
@@ -101,6 +107,7 @@ public class LinkedListTest extends student.TestCase
         assertFalse(test.contains("b"));
         assertFalse(test.contains(nullOne));
     }
+    
     /**
      * This will test the getEntry method, which
      * should return a specified entry in the list.
@@ -142,6 +149,7 @@ public class LinkedListTest extends student.TestCase
         assertEquals("b", test.getEntry(1));
         assertEquals("c", test.getEntry(2));
     }
+    
     /**
      * tests the getLength method. The test will make sure
      * the size field increments properly
@@ -156,6 +164,7 @@ public class LinkedListTest extends student.TestCase
         test.remove(1);
         assertEquals(1, test.getLength());
     }
+    
     /**
      * Tests the isEmpty() method
      */
@@ -167,6 +176,7 @@ public class LinkedListTest extends student.TestCase
         test.remove(1);
         assertTrue(test.isEmpty());
     }
+    
     /**
      * This will test the remove method. The list should
      * remove the data at the specified point without problems,
@@ -204,6 +214,7 @@ public class LinkedListTest extends student.TestCase
         test.add("c");
         assertEquals("d", test.remove(2));
     }
+    
     /**
      * Tests the replace method. The list should be able
      * to replace the data unless the index is out of bounds
@@ -236,6 +247,7 @@ public class LinkedListTest extends student.TestCase
         test.replace(2, "bacon");
         assertEquals("bacon", test.getEntry(2));
     }
+    
     /**
      * Tests the toArray() method
      */
@@ -251,6 +263,7 @@ public class LinkedListTest extends student.TestCase
         String toCompareAsWell = (String)test.toArray()[0];
         assertEquals(toCompareAsWell, toCompare[0]);
     }
+    
     /**
      * tests the equals method, which will return true when
      * the lists have the same entries in the same order
@@ -273,6 +286,7 @@ public class LinkedListTest extends student.TestCase
         trueOne.add("c");
         assertTrue(test.equals(trueOne));
     }
+    
     /**
      * This will test the toString method
      */
